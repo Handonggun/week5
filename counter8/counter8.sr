@@ -1,0 +1,30 @@
+#!/usr/bin/bash 
+
+# GPIO 핀 설정 (13, 19, 26번 핀)
+LED_PINS=(13 19 26)
+
+# 각 핀을 출력 모드로 설정
+for pin in "${LED_PINS[@]}"; do
+    pinctrl set $pin op  # 핀을 출력 모드로 설정
+done
+
+# 무한 루프 시작
+while true; do
+    # 카운트 0부터 7까지 이진수로 LED 표시
+    for i in {0..7}; do
+        # 숫자를 이진수로 변환
+        binary=$(echo "obase=2; $i" | bc)
+        binary=$(printf "%03d" $binary)  # 3자리 이진수로 맞추기 (예: 001, 010, 011)
+
+        # LED 핀에 이진수에 맞는 값을 출력
+        for j in {0..2}; do
+            if [ ${binary:$j:1} -eq 1 ]; then
+                pinctrl set ${LED_PINS[$j]} dh  # LED 켜기
+            else
+                pinctrl set ${LED_PINS[$j]} dl  # LED 끄기
+            fi
+        done
+
+        sleep 1  # 1초 간격으로 진행
+    done
+done
