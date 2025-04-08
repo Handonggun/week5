@@ -8,7 +8,7 @@
 
 실제 구성된 하드웨어:
 
-![real](./image/counter8.jpg)
+![real](https://github.com/Handonggun/week5/blob/main/image/counter8.jpg)
 
 ---
 
@@ -33,7 +33,7 @@
 
 ## 실제 코드 및 설명
 
-![real](./image/counter8_code.PNG)
+![real](https://github.com/Handonggun/week5/blob/main/image/counter8_code.PNG)
 
 ---
 
@@ -42,9 +42,7 @@
 ```bash
 # 스크립트 실행 전 권한 부여
 chmod +x counter8
-counter8
 
 # 실행
 ./counter8.sh     # 3비트 이진 카운터
-./domino4.sh      # 도미노 LED 점등
 
