@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# GPIO 핀 설정 (예시로 4개의 핀을 사용)
+LED_PINS=(6 13 19 26)
+
+# 각 핀을 출력 모드로 설정
+for pin in "${LED_PINS[@]}"; do
+    pinctrl set $pin op  # 핀을 출력 모드로 설정
+done
+
+# 무한 루프 시작
+while true; do
+    # 4개의 LED가 순차적으로 켜지도록 설정
+    for i in {0..3}; do
+        # LED를 켜기 전에 모든 LED 끄기
+        for pin in "${LED_PINS[@]}"; do
+            pinctrl set $pin dl  # 모든 LED 끄기
+        done
+
+        # 현재 LED 켜기
+        pinctrl set ${LED_PINS[$i]} dh  # 현재 LED 켜기
+
+        sleep 1  # 1초 간격으로 진행
+    done
+done
