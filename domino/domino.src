@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # GPIO 핀 설정 (예시로 4개의 핀을 사용)
-LED_PINS=(6 13 19 26)
+LED_PINS=(6 13 19 26) 
 
 # 각 핀을 출력 모드로 설정
 for pin in "${LED_PINS[@]}"; do
