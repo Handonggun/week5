@@ -8,7 +8,7 @@
 
 실제 구성된 하드웨어:
 
-![real](image/counter8.jpg)
+![real](./image/counter8.jpg)
 
 ---
 
@@ -33,7 +33,7 @@
 
 ## 실제 코드 및 설명
 
-![real](image/counter8_code.PNG)
+![real](./image/counter8_code.PNG)
 
 ---
 
